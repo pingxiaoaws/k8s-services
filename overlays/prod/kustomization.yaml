@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: prod
+
+resources:
+- ../../services/service1
+- ../../services/service2
+- ../../services/service3
+
+commonLabels:
+  environment: prod
+  version: v1.0.0
+
+patchesStrategicMerge:
+- resources-patch.yaml
